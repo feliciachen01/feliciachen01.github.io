@@ -1,236 +1,1192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!--💡UPDATE: Change the title to your name-->
-    <title>Felicia Chen | Data Analysis Portfolio</title>
-      
-    <!--💡UPDATE: Add your favicon here. You can generate one at realfavicongenerator.net-->
-    <link rel="icon" type="image/png" href="icon-32x32.png">
-    <link rel="apple-touch-icon" href="icon-32x32.png">
-    
-    <!-- Google Fonts for Elegant Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- Your Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felicia Chen</title>
+<meta name="description" content="Felicia Chen, computer science at UBC. Personal agents, embodied AI, and how intelligent systems interact with the physical world.">
+<link rel="icon" type="image/png" href="icon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Inter:wght@300;400;500;600&amp;family=Inter+Tight:wght@300;400&amp;family=Manrope:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8}
+.pg{--ease-out:cubic-bezier(0.23,1,0.32,1);--bg:#FAFAF8;--ink:#141414;--ink2:#6B6B68;--rule:#E2E1DC;--tile:#EFEEEA;--raised:#FFFFFF;--shadow:0 1px 2px rgba(20,20,20,0.05),0 10px 24px -8px rgba(20,20,20,0.12),0 28px 56px -16px rgba(20,20,20,0.10);--tile-grad:linear-gradient(160deg,#F7F6F2 0%,#ECEAE5 100%);background:var(--bg) radial-gradient(1400px 700px at 50% -15%,#FFFFFF,rgba(255,255,255,0) 70%) no-repeat;color:var(--ink);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:clip}
+.f-instrument{font-family:"Instrument Sans",ui-sans-serif,system-ui,sans-serif}
+.f-inter{font-family:"Inter",ui-sans-serif,system-ui,sans-serif}
+.f-manrope{font-family:"Manrope",ui-sans-serif,system-ui,sans-serif}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+.dim{color:var(--ink2)}
+a{color:var(--ink);text-decoration:none}
+.btn{appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;text-align:left}
+.press{transition:transform 160ms var(--ease-out)}
+.pg :focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+.ul{text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:4px}
+
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:40px;padding-bottom:40px}
+.name{font-size:17px;font-weight:500;letter-spacing:-0.01em}
+.tabs{display:flex;gap:28px;flex-wrap:wrap}
+.tab{display:inline-flex;align-items:center;min-height:44px;color:var(--ink2);position:relative}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--ink)}
+
+.view{flex:1;padding-top:40px;padding-bottom:80px;transition:opacity 220ms var(--ease-out),transform 220ms var(--ease-out)}
+@starting-style{.view{opacity:0}}
+
+.col{width:100%;max-width:880px;margin:0 auto;padding:0 32px;box-sizing:border-box}
+.ph-r{display:flex;align-items:center;gap:10px}
+.card2{background:#F3F2EE;border-radius:32px;box-shadow:var(--shadow);padding:32px}
+.ph.sec2{margin-top:72px}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:40px;align-items:center}
+.about p{margin:0;font-size:16px;text-wrap:pretty}
+.portrait{display:block;aspect-ratio:1 / 1;width:100%;height:auto;object-fit:cover;background:var(--raised);border-radius:16px;box-shadow:var(--shadow);will-change:transform}
+.facts{display:flex;flex-direction:column;margin:28px 0 0}
+.facts>div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:10px 0;border-top:1px solid var(--rule);font-size:14px}
+.facts>div:last-child{border-bottom:1px solid var(--rule)}
+.facts dt,.facts dd{margin:0}
+.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.bt{background:var(--raised);border-radius:20px;box-shadow:var(--shadow);padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:150px;box-sizing:border-box;transition:opacity 360ms var(--ease-out),transform 360ms var(--ease-out)}
+.bt.w2{grid-column:span 2}
+.bt.w3{grid-column:span 3}
+.bt:nth-child(2){transition-delay:50ms}
+.bt:nth-child(3){transition-delay:100ms}
+.bt:nth-child(4){transition-delay:150ms}
+.bt:nth-child(5){transition-delay:200ms}
+.bt:nth-child(6){transition-delay:250ms}
+.bt:nth-child(7){transition-delay:300ms}
+.bi{width:38px;height:38px;border-radius:12px;background:#F3F2EE;display:flex;align-items:center;justify-content:center}
+.bi svg{width:18px;height:18px}
+.bt .grow2{flex:1}
+.bt h3{font-size:20px;font-weight:600;letter-spacing:-0.01em;line-height:1.25;margin:0}
+.bt p{margin:4px 0 0;font-size:14px;text-wrap:pretty}
+.bk{font-size:28px;font-weight:600;letter-spacing:-0.02em;line-height:1.15;margin:0}
+.blink{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:600}
+@media (max-width:760px){.bento{grid-template-columns:minmax(0,1fr)}.bt.w2,.bt.w3{grid-column:auto}}
+.tlab{margin:20px 0 10px;font-size:12px;font-weight:600}
+.ttools{display:flex;flex-wrap:wrap;gap:10px 20px}
+.tt2{display:inline-flex;align-items:center;gap:10px;font-size:14px}
+.tico.sm{flex:0 0 32px;height:32px;border-radius:10px;font-size:11px}
+.pop{position:absolute;right:0;top:calc(100% + 10px);z-index:6;width:270px;padding:20px;background:var(--raised);border-radius:20px;box-shadow:var(--shadow);transform-origin:top right;transition:opacity 180ms var(--ease-out),transform 180ms var(--ease-out),filter 180ms var(--ease-out)}
+.pop h4{font-size:12px;font-weight:600;margin:0 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chipx{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:#F3F2EE;font-size:13px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:32px 28px}
+.tct{font-size:12px;font-weight:600;margin:0 0 16px}
+.tl2{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.tool{display:flex;align-items:center;gap:14px}
+.tico{flex:0 0 44px;height:44px;border-radius:12px;background:var(--raised);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;letter-spacing:-0.01em;transition:transform 200ms var(--ease-out)}
+.tt{display:flex;flex-direction:column;min-width:0}
+.tn{font-size:15px;line-height:1.3}
+.td{font-size:13px;line-height:1.35}
+
+.wv{padding-left:0;padding-right:0;max-width:none}
+.ph{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;max-width:880px;margin:0 auto 32px;padding:0 32px;box-sizing:border-box}
+.ph-l{font-size:12px;font-weight:600}
+.ph h2{font-family:"Inter Tight","Instrument Sans",ui-sans-serif,system-ui,sans-serif;font-size:44px;font-weight:300;letter-spacing:-0.035em;line-height:1.15;margin:4px 0 0}
+.vall{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;white-space:nowrap}
+.stage{position:relative;height:var(--h);touch-action:pan-y;user-select:none;-webkit-user-select:none;--w:min(816px,82vw);--h:max(320px,min(calc(var(--w) * 0.56),calc(100vh - 400px)))}
+.stage:focus-visible{outline:none}
+.stage:focus-visible .card[aria-hidden="false"]{outline:2px solid var(--ink);outline-offset:4px}
+.track{position:absolute;inset:0}
+.card{position:absolute;top:0;left:50%;width:var(--w);height:var(--h);margin-left:calc(var(--w) / -2);background:#F3F2EE;border-radius:32px;box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,270px) minmax(0,1fr);gap:28px;padding:28px 0 0 28px;box-sizing:border-box;overflow:hidden;will-change:transform,opacity}
+.hit{position:absolute;inset:0;z-index:2;display:none}
+.cl-l{display:flex;flex-direction:column;align-items:flex-start;gap:20px;padding-bottom:28px;min-height:0}
+.cl-txt{flex:1;min-height:0;overflow:hidden}
+.cl-l .more{flex-shrink:0}
+.ctitle{font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.16;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;overflow:hidden;text-wrap:balance}
+.csub{font-size:12px;font-weight:600;margin-top:4px}
+.csum{font-size:14px;line-height:1.5;margin:14px 0 0;text-wrap:pretty;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.cstack{font-size:12px;line-height:1.4;margin-top:10px}
+.more.wip{background:transparent;gap:8px}
+.wdot{width:7px;height:7px;border-radius:50%}
+.more{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;color:#FFFFFF;font-size:14px;font-weight:600}
+.shot{background:var(--raised);border-radius:16px 0 0 0;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;gap:28px;padding:40px;min-width:0}
+.shot.img{padding:0;overflow:hidden}
+.shot.img img{display:block;width:100%;height:100%;object-fit:cover;object-position:left top;-webkit-user-drag:none}
+.shot.img.fit img{object-fit:contain;object-position:center;padding:20px;box-sizing:border-box}
+.shot.rq{justify-content:flex-start;gap:0;padding:36px}
+.rq-q{height:10.4em;flex:none}
+.rqq{font-size:clamp(22px,2.4vw,30px);font-weight:500;letter-spacing:-0.02em;line-height:1.22;margin:12px 0 0;text-wrap:balance}
+.rqf{border-top:1px solid var(--rule);padding-top:16px}
+.rqf p{margin:6px 0 0;font-size:15px;line-height:1.5;text-wrap:pretty;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden}
+.shot .big{font-size:clamp(34px,4vw,56px);font-weight:300;letter-spacing:-0.035em;line-height:1}
+.shot .nums{display:flex;flex-wrap:wrap;gap:12px 36px;font-size:13px}
+.shot .nums b{display:block;font-weight:400;color:var(--ink);font-size:20px;letter-spacing:-0.01em}
+.dots{display:flex;justify-content:center;gap:2px;margin-top:20px}
+.dotb{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center}
+.dotb span{width:8px;height:8px;border-radius:50%;background:var(--ink);opacity:0.2;transition:opacity 200ms ease}
+.dotb[aria-current="true"] span{opacity:0.85}
+.icob{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--raised);box-shadow:var(--shadow)}
+.icob svg{width:18px;height:18px}
+.icob img{display:block}
+.tools-s{margin-top:96px}
+.tools-s .tgrid{margin-top:28px}
+
+.tlw{overflow-x:auto;overflow-y:hidden;margin:0 -32px;padding:16px 32px 12px;scrollbar-width:none;-webkit-mask-image:linear-gradient(to right,transparent,#000 32px,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(to right,transparent,#000 32px,#000 calc(100% - 32px),transparent)}
+.tlw::-webkit-scrollbar{display:none}
+.tlh{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(170px,1fr));min-width:1190px}
+.ev{display:flex;flex-direction:column;width:100%;padding:0 20px 8px 0;box-sizing:border-box}
+.ev .d{font-size:13px;height:28px}
+.ev .rail{position:relative;height:24px;width:100%}
+.ev .rail::before{content:"";position:absolute;left:0;right:-20px;top:50%;height:1px;background:var(--rule)}
+.tlh li:last-child .rail::before{background:linear-gradient(to right,var(--rule),transparent)}
+.dot{position:absolute;left:0;top:50%;width:11px;height:11px;margin-top:-6px;border-radius:50%;border:1px solid var(--ink);background:var(--bg);box-sizing:border-box;transition:transform 200ms var(--ease-out)}
+.dot::after{content:"";position:absolute;left:50%;top:50%;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;background:radial-gradient(circle,rgba(20,20,20,0.16),rgba(20,20,20,0) 70%);opacity:0;transition:opacity 200ms var(--ease-out);pointer-events:none}
+.ev[aria-pressed="true"] .dot{background:var(--ink);transform:scale(1.25)}
+.ev[aria-pressed="true"] .dot::after{opacity:0.6}
+.ev:focus-visible .dot{transform:scale(1.6)}
+.ev:focus-visible .dot::after{opacity:1}
+.ev .c{display:flex;flex-direction:column;align-items:flex-start;padding-top:18px}
+.elogo.pic{display:block;width:36px;height:36px;min-width:0;padding:0;object-fit:cover}
+.elogo{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:36px;padding:0 6px;box-sizing:border-box;border-radius:10px;background:var(--raised);box-shadow:var(--shadow);font-size:11px;font-weight:600;letter-spacing:0.02em;margin-bottom:10px}
+.ev .o{font-size:16px;line-height:1.35;transition:color 150ms ease}
+.ev .r{font-size:13px;margin-top:4px;text-wrap:pretty}
+.ev[aria-pressed="false"] .o{color:var(--ink2)}
+.tdet{margin-top:24px;padding:24px 28px;background:var(--raised);border-radius:16px;box-shadow:var(--shadow)}
+.tdet h3{font-size:22px;font-weight:600;letter-spacing:-0.01em;margin:0}
+.tdet p{margin:12px 0 0;text-wrap:pretty}
+.rotw{display:inline-block;vertical-align:bottom;overflow:visible}
+.rot{display:inline-block;color:var(--ink);will-change:transform,opacity,filter}
+.tpts{margin:14px 0 0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55}
+.tpts li{text-wrap:pretty;padding-left:2px}
+.tpts li::marker{color:var(--ink2)}
+
+.feed{max-width:744px;margin:0 auto}
+.pc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,260px);gap:28px;align-items:stretch;margin-bottom:24px}
+.pc-l{display:flex;flex-direction:column;align-items:flex-start}
+.ptl2{font-size:28px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin:6px 0 0;text-wrap:balance}
+.ptl2 .btn{text-align:left}
+.pc .vall{margin-top:22px}
+.pc-art{background:var(--raised);border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:190px}
+.pc-art .big{font-size:56px;font-weight:300;letter-spacing:-0.035em;line-height:1}
+.ph2{margin:0 0 48px}
+.pt{font-size:clamp(28px,3.4vw,38px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin:0 0 16px;text-wrap:balance}
+.lead{font-size:20px;line-height:1.5;margin:0 0 16px;max-width:720px;text-wrap:pretty}
+.meta2{display:flex;flex-wrap:wrap;font-size:14px}
+.meta2 .sep{margin:0 8px;opacity:0.5}
+.prow{display:grid;grid-template-columns:230px minmax(0,1fr);gap:0 40px;align-items:start}
+.pside{align-self:stretch;border-right:1px solid var(--rule);padding-right:32px}
+.sticky{position:sticky;top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+.scard{width:100%;background:#F3F2EE;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.sart{background:var(--raised);aspect-ratio:3 / 2;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:300;letter-spacing:-0.03em}
+.scard p{margin:0;padding:14px 16px;font-size:12px;line-height:1.4}
+.toc{display:flex;flex-direction:column;width:100%}
+.toc .ph-l{margin-bottom:6px}
+.toc a{display:flex;align-items:center;min-height:32px;font-size:14px;color:var(--ink2)}
+.pbody2 section{margin-bottom:48px}
+.pbody2 h2{font-size:26px;font-weight:600;letter-spacing:-0.015em;line-height:1.2;margin:0 0 20px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.pbody2 p{font-size:17px;line-height:1.8;margin:0 0 24px;max-width:660px;text-wrap:pretty}
+.pbody2 p:last-child{margin-bottom:0}
+@media (hover:hover) and (pointer:fine){.toc a:hover{color:var(--ink)}}
+@media (max-width:760px){.prow{grid-template-columns:minmax(0,1fr)}.pside{border-right:0;padding-right:0;margin-bottom:36px}.sticky{position:static}.lead{font-size:18px}.pbody2 p{font-size:16px}}
+.ph h2.ph-long{font-size:clamp(28px,3.4vw,40px);max-width:640px;text-wrap:balance}
+.essay{background:var(--raised);border-radius:16px;box-shadow:var(--shadow);padding:44px 52px;font-size:17px;line-height:1.75}
+.essay p{margin:0 0 20px;max-width:680px;text-wrap:pretty}
+.essay p:last-child{margin-bottom:0}
+.essay .ctx{font-size:14px;line-height:1.5;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+@media (max-width:760px){.pc{grid-template-columns:minmax(0,1fr)}.essay{padding:24px;font-size:16px}}
+.feed-h{font-size:37px;font-weight:300;line-height:1.2;margin:0 0 40px}
+.pcard{display:flex;border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin:0 0 24px}
+.pimg{flex:0 0 25%;min-height:208px;background:var(--tile);display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px}
+.pbody{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:24px}
+.ptl{font-size:23.4px;font-weight:500;line-height:1.2;margin:0 0 8px}
+.pdate{font-size:14px;margin:0 0 8px}
+.pex{font-size:16px;margin:0 0 16px;text-wrap:pretty}
+.rp{display:inline-flex;align-items:center;min-height:31px;padding:4px 8px;box-sizing:border-box;font-size:14px;border:1px solid var(--ink);border-radius:4px}
+.back{display:inline-flex;align-items:center;min-height:44px;margin-bottom:24px}
+.article{max-width:744px;margin:0 auto}
+.article h1{font-size:clamp(30px,3.6vw,40px);font-weight:300;letter-spacing:-0.025em;line-height:1.12;margin:0 0 10px}
+.article .body{margin-top:40px;font-size:17px;line-height:1.7}
+
+.cl{background:var(--raised);border-radius:16px;box-shadow:var(--shadow);padding:6px 28px}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.cform{display:flex;flex-direction:column;gap:16px}
+.cform input,.cform textarea{appearance:none;font:inherit;font-size:16px;line-height:1.5;color:var(--ink);background:var(--raised);border:1px solid var(--rule);border-radius:12px;padding:16px 20px;box-sizing:border-box;width:100%;resize:vertical}
+.cform textarea{min-height:180px}
+.cform input::placeholder,.cform textarea::placeholder{color:var(--ink2)}
+.cform input:focus-visible,.cform textarea:focus-visible{outline:none;border-color:var(--ink)}
+.sub{display:inline-flex;align-items:center;min-height:46px;padding:0 24px;border:1px solid var(--ink);border-radius:12px;font-size:15px;font-weight:600;box-sizing:border-box}
+.csoc{display:flex;gap:12px;margin-top:28px}
+.row{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:12px 0;border-top:1px solid var(--rule)}
+.row:first-child{border-top:0}
+.row a{min-height:32px;display:inline-flex;align-items:center}
+.acts2{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.cpy.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--rule)}
+.cpy{display:inline-flex;align-items:center;min-height:32px;padding:0 14px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:600}
+
+.toast{position:fixed;left:50%;bottom:28px;z-index:9;transform:translateX(-50%);padding:10px 16px;background:var(--ink);color:var(--bg);font-size:13px;white-space:nowrap;transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out)}
+@starting-style{.toast{opacity:0}.pop{opacity:0}.bt{opacity:0}}
+
+@media (prefers-reduced-motion:no-preference){
+@starting-style{.view{transform:translateY(6px)}.toast{transform:translate(-50%,8px)}.pop{transform:scale(0.96);filter:blur(3px)}.bt{transform:translateY(10px)}}
+.press:active{transform:scale(0.97)}
+}
+@media (prefers-reduced-motion:reduce){
+.dot{transition:none}
+.ev:focus-visible .dot{transform:none}
+}
+.pg[data-instant="true"] .view{transition:none}
+@media (hover:hover) and (pointer:fine){
+.tab:hover,.btn.dim:hover,.arr:not(:disabled):hover{color:var(--ink)}
+.ul:hover{text-decoration-color:var(--ink)}
+.stage{cursor:grab}
+.stage:active{cursor:grabbing}
+.ev:hover .o{color:var(--ink)}
+.ev:hover .dot::after{opacity:1}
+.ptl .btn:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--rule)}
+.rp:hover{background:var(--ink);color:var(--bg)}
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+.ev:hover .dot{transform:scale(1.6)}
+.tool:hover .tico{transform:translateY(-3px)}
+.bt:hover{transform:translateY(-2px)}
+.sub:hover{background:var(--ink);color:var(--bg)}
+.pill:hover,.icob:hover,.vall:hover,.more:hover,.cpy:hover{transform:translateY(-1px)}
+}
+@media (max-width:760px){
+.col{padding:0 20px}
+.card2{padding:20px;border-radius:24px}
+.about{grid-template-columns:minmax(0,1fr)}
+.row{grid-template-columns:80px minmax(0,1fr) auto}
+.wrap{padding:0 20px}
+.hd{padding-top:24px;padding-bottom:16px}
+.tabs{gap:16px}
+.view{padding-top:24px;padding-bottom:56px}
+.wv{padding:0}
+.stage{--w:88vw;--h:calc(var(--w) * 1.78)}
+.card{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:18px;padding:24px 0 0 24px;border-radius:24px}
+.cl-txt{flex:none;overflow:visible}
+.csum{-webkit-line-clamp:3}
+.cstack{display:none}
+.shot.rq{padding:22px}
+.rq-q{height:auto;margin-bottom:16px}
+.rqf p{-webkit-line-clamp:7;font-size:14px}
+.cl-l{padding:0 24px 0 0;gap:18px}
+.ctitle{font-size:28px}
+.shot{padding:24px}
+.rqq{font-size:21px}
+.ph{padding:0 20px}
+.ph h2{font-size:34px}
+.tools-s{margin-top:64px}
+.tlw{padding:12px 20px;margin:0 -20px}
+.tlw::-webkit-scrollbar{display:none}
+.tlh{grid-template-columns:repeat(7,minmax(150px,1fr));min-width:1050px}
+.pcard{flex-direction:column}
+.pimg{flex:none;min-height:180px}
+.row{grid-template-columns:84px minmax(0,1fr) auto}
+}
+</style>
 </head>
 <body>
+<div id="root"></div>
+<template id="dc-template">
+<div class="pg {{ fontClass }}" data-instant="{{ instant }}">
 
-<!-- HEADER SECTION -->
-<header>
-    <div class="container">
-        <!--💡UPDATE: Change to your name and title-->
-        <h1>Felicia Chen</h1>
-        <p>Data Analyst | CS @ UBC</p>
-        <div class="social-links">
-            <!--💡UPDATE: Add your social media links and CV file-->
-            <a href="https://www.linkedin.com/in/felicia-juliana-chen-a20583235/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/feliciachen01" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="assets/Your_Name_CV.pdf" download title="Download CV"><i class="fas fa-file-arrow-down"></i></a>
-        </div>
-    </div>
+<header class="wrap hd">
+<span class="name">Felicia Chen</span>
+<nav class="tabs" role="tablist" aria-label="Sections">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+<button type="button" class="btn tab press" role="tab" id="{{ t.tid }}" aria-selected="{{ t.sel }}" aria-controls="panel" onClick="{{ t.go }}">{{ t.label }}</button>
+</sc-for>
+</nav>
 </header>
 
-<!-- NAVIGATION -->
-<nav>
-    <div class="container">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ true }}">
+<main class="view" id="panel" role="tabpanel" aria-labelledby="tab-about">
+<div class="ph">
+<div><div class="ph-l dim">About</div><h2>Hi! I’m Felicia,</h2></div>
+<div class="ph-r">
+<a class="icob press" href="https://www.linkedin.com/in/felicia-juliana-chen-a20583235/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><img src="assets/img/linkedin.png" alt="" width="22" height="22"></a>
+<a class="icob press" href="https://github.com/feliciachen01" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><img src="assets/img/github.png" alt="" width="20" height="20"></a>
+<button type="button" class="btn icob press" aria-label="Open the secret tab" title="Psst" onClick="{{ openSecret }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4c.6 4.3 2.7 6.4 7 7-4.3.6-6.4 2.7-7 7-.6-4.3-2.7-6.4-7-7 4.3-.6 6.4-2.7 7-7z"></path><path d="M19 3v3"></path><path d="M17.5 4.5h3"></path></svg></button>
+</div>
+</div>
+<div class="col">
+<div class="card2 about">
+<div>
+<p>A senior at the University of British Columbia.</p>
+<p style="margin-top: 14px">I’m interested in the nature of intelligence, particularly personal agents, embodied AI, and how intelligent systems can interact with the physical world.</p>
+<dl class="facts">
+<div><dt class="dim">Now</dt><dd>AI Engineer Intern, TSV Capital</dd></div>
+<div><dt class="dim">Studying</dt><dd>BSc Computer Science, UBC ’27</dd></div>
+</dl>
+</div>
+<img class="portrait" ref="{{ setPortrait }}" src="assets/img/portrait.jpg" alt="Felicia Chen">
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
+<main class="view wv" id="panel" role="tabpanel" aria-labelledby="tab-work">
+<div class="ph">
+<div><div class="ph-l dim">Selected work</div><h2>Projects</h2></div>
+<a class="vall press" href="https://github.com/feliciachen01" target="_blank" rel="noopener">View all</a>
+</div>
+<div class="stage" ref="{{ setStage }}" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Projects. Use the left and right arrow keys to browse.">
+<div class="track" ref="{{ setTrack }}">
+<sc-for list="{{ cards }}" as="c" hint-placeholder-count="4">
+<div class="card" aria-hidden="{{ c.hidden }}">
+<div class="cl-l">
+<div class="cl-txt">
+<h3 class="ctitle">{{ c.title }}</h3>
+<div class="csub dim">{{ c.sub }}</div>
+<p class="csum dim">{{ c.sum }}</p>
+<div class="cstack dim">{{ c.stack }}</div>
+</div>
+<sc-if value="{{ c.live }}" hint-placeholder-val="{{ true }}"><a class="more press" href="{{ c.href }}" target="_blank" rel="noopener" tabindex="{{ c.tab }}" style="background: {{ c.color }}">{{ c.cta }}</a></sc-if>
+<sc-if value="{{ c.wip }}" hint-placeholder-val="{{ false }}"><span class="more wip" style="color: {{ c.color }}; box-shadow: inset 0 0 0 1.5px {{ c.color }}"><span class="wdot" style="background: {{ c.color }}" aria-hidden="true"></span>In progress</span></sc-if>
+</div>
+<sc-if value="{{ c.hasImg }}" hint-placeholder-val="{{ false }}">
+<div class="{{ c.shotCls }}"><img src="{{ c.img }}" alt="{{ c.imgAlt }}" draggable="false"></div>
+</sc-if>
+<sc-if value="{{ c.noImg }}" hint-placeholder-val="{{ true }}">
+<div class="shot rq">
+<div class="rq-q"><div class="ph-l dim">{{ c.qLabel }}</div><p class="rqq">{{ c.q }}</p></div>
+<div class="rqf"><div class="ph-l dim">{{ c.fLabel }}</div><p>{{ c.finding }}</p></div>
+</div>
+</sc-if>
+<button type="button" class="btn hit" tabindex="-1" aria-hidden="true" onClick="{{ c.go }}"></button>
+</div>
+</sc-for>
+</div>
+</div>
+<div class="dots" role="group" aria-label="Choose project">
+<sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+<button type="button" class="btn dotb" aria-current="{{ d.cur }}" aria-label="{{ d.label }}" onClick="{{ d.go }}"><span></span></button>
+</sc-for>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{ isExp }}" hint-placeholder-val="{{ false }}">
+<main class="view" id="panel" role="tabpanel" aria-labelledby="tab-experience">
+<div class="ph">
+<div><div class="ph-l dim">Where I’ve been</div><h2>Experience</h2></div>
+</div>
+<div class="col">
+<div class="card2">
+<div class="tlw" ref="{{ setTlw }}">
+<ol class="tlh">
+<sc-for list="{{ timeline }}" as="e" hint-placeholder-count="6">
+<li>
+<button type="button" class="btn ev" aria-pressed="{{ e.pressed }}" onClick="{{ e.go }}" onMouseEnter="{{ e.go }}" onFocus="{{ e.focus }}">
+<span class="d dim">{{ e.short }}</span>
+<span class="rail" aria-hidden="true"><span class="dot"></span></span>
+<span class="c"><sc-if value="{{ e.hasLogo }}" hint-placeholder-val="{{ true }}"><img class="elogo pic" src="{{ e.logo }}" alt=""></sc-if><sc-if value="{{ e.noLogo }}" hint-placeholder-val="{{ false }}"><span class="elogo" aria-hidden="true">{{ e.ini }}</span></sc-if><span class="o">{{ e.org }}</span><span class="r dim">{{ e.role }}</span></span>
+</button>
+</li>
+</sc-for>
+</ol>
+</div>
+<div class="tdet" ref="{{ setTdet }}" aria-live="polite">
+<h3>{{ tsel.org }}</h3>
+<div class="dim">{{ tsel.role }}, {{ tsel.when }}</div>
+<sc-if value="{{ tsel.hasNote }}" hint-placeholder-val="{{ false }}"><p>{{ tsel.note }}</p></sc-if>
+<sc-for list="{{ tsel.groups }}" as="g" hint-placeholder-count="1">
+<sc-if value="{{ g.hasH }}" hint-placeholder-val="{{ false }}"><div class="tlab dim">{{ g.h }}</div></sc-if>
+<ul class="tpts"><sc-for list="{{ g.pts }}" as="pt" hint-placeholder-count="3"><li>{{ pt }}</li></sc-for></ul>
+</sc-for>
+<sc-if value="{{ tsel.hasCourses }}" hint-placeholder-val="{{ false }}"><div class="tlab dim">Coursework</div><div class="chips"><sc-for list="{{ tsel.courses }}" as="cc" hint-placeholder-count="5"><span class="chipx">{{ cc }}</span></sc-for></div></sc-if>
+<sc-if value="{{ tsel.hasTools }}" hint-placeholder-val="{{ true }}"><div class="tlab dim">Tools</div><div class="ttools"><sc-for list="{{ tsel.tools }}" as="tl" hint-placeholder-count="3"><span class="tt2"><span class="tico sm" aria-hidden="true">{{ tl.m }}</span>{{ tl.n }}</span></sc-for></div></sc-if>
+</div>
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{ isBlog }}" hint-placeholder-val="{{ false }}">
+<main class="view" id="panel" role="tabpanel" aria-labelledby="tab-blog">
+<sc-if value="{{ noPost }}" hint-placeholder-val="{{ true }}">
+<div class="ph">
+<div><div class="ph-l dim">Writing</div><h2>Blog</h2></div>
+</div>
+<div class="col">
+<sc-for list="{{ posts }}" as="p" hint-placeholder-count="1">
+<article class="card2 pc">
+<div class="pc-l">
+<div class="ph-l dim">{{ p.kind }}</div>
+<h3 class="ptl2"><button type="button" class="btn" onClick="{{ p.open }}">{{ p.title }}</button></h3>
+<div class="csub dim">{{ p.date }}</div>
+<p class="csum dim">{{ p.ex }}</p>
+<button type="button" class="btn vall press" onClick="{{ p.open }}">Read post</button>
+</div>
+<button type="button" class="btn pc-art press" tabindex="-1" aria-hidden="true" onClick="{{ p.open }}"><span class="big">{{ p.art }}</span><span class="ph-l dim">{{ p.artCap }}</span></button>
+</article>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ hasPost }}" hint-placeholder-val="{{ false }}">
+<div class="col">
+<header class="ph2">
+<h1 class="pt">{{ post.title }}</h1>
+<p class="lead dim">{{ post.lead }}</p>
+<div class="meta2 dim"><span>Felicia Chen</span><span class="sep" aria-hidden="true">·</span><span>{{ post.date }}</span><span class="sep" aria-hidden="true">·</span><span>{{ post.course }}</span></div>
+</header>
+<div class="prow">
+<aside class="pside">
+<div class="sticky">
+<div class="scard"><div class="sart" aria-hidden="true">{{ post.art }}</div><p class="dim">{{ post.cap }}</p></div>
+<nav class="toc" aria-label="Contents"><div class="ph-l dim">Contents</div>
+<sc-for list="{{ post.sections }}" as="sx" hint-placeholder-count="5"><a href="#{{ sx.id }}">{{ sx.h }}</a></sc-for>
 </nav>
-
-<!-- ABOUT SECTION -->
-<section id="about" class="section">
-    <div class="container">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <!--💡UPDATE: Change the image to your own profile photo in assets/images/-->
-            <img src="assets/images/2026-03-05-15-41-02-782.jpg" alt="Your Name" class="profile-photo">
-            <div class="about-text">
-                <!--💡UPDATE: Write your own 'About Me' text here-->
-                <p> I'm a third-year Computer Science student at UBC with a passion for turning raw data into stories that actually mean something. My focus is to visualize, communicate, and connect data in ways that drive real-world impact.</p>
-            </div>
-        </div>
-    </div>
+<button type="button" class="btn vall press" onClick="{{ closePost }}">← More about me</button>
+</div>
+</aside>
+<article class="pbody2">
+<sc-for list="{{ post.sections }}" as="sx" hint-placeholder-count="5">
+<section id="{{ sx.id }}"><h2>{{ sx.h }}</h2>
+<sc-for list="{{ sx.paras }}" as="pp" hint-placeholder-count="3"><p>{{ pp }}</p></sc-for>
 </section>
+</sc-for>
+</article>
+</div>
+</div>
+</sc-if>
+</main>
+</sc-if>
 
-<!-- PROJECTS SECTION -->
-<section id="projects" class="section">
-    <div class="container">
-        <h2>My Projects</h2>
-        <div class="projects-grid">
-
-            <!--💡UPDATE: Replace this with your own project. Add as many as you like!-->
-            <!-- Project 1 -->
-             <div class="project-card">
-                <!--💡UPDATE: Add a preview image of your project to assets/images/ -->
-                <img src="assets/images/TableauDashboard.png" alt="Project One Preview">
-                <div class="project-card-content">
-                    <h3>Tiktok Content Moderation Analysis</h3>
-                    <p>An end-to-end analysis project in Python, classifying opinion/claim videos from user data and engagement metrics. Visualized insights on Tableau & Power BI.</p>
-                    <div class="project-buttons">
-                        <!--💡UPDATE: Add link to your project's code/documentation on GitHub-->
-                        <a href="https://github.com/feliciachen01/Tiktok-Content-Moderation-Analysis" target="_blank" class="btn">Documentation</a>
-                        <!--💡UPDATE: Add link to your live dashboard (e.g., Power BI, Tableau Public)-->
-                        <a href="https://public.tableau.com/app/profile/felicia.chen1905/viz/TiktokContentModerationDashboard/Dashboard1" target="_blank" class="btn btn-secondary">View Dashboard</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <img src="assets/images/ecom.jpg" alt="Project Two Preview">
-                <div class="project-card-content">
-                    <h3>E-commerce EDA & Dashboard</h3>
-                    <p>Exploring transaction trends and payment behavior through SQL analysis.</p>
-                    <div class="project-buttons">
-                        <a href="[YOUR_GITHUB_PROJECT_URL]" target="_blank" class="btn">Documentation</a>
-                        <a href="[YOUR_LIVE_DASHBOARD_URL]" target="_blank" class="btn btn-secondary">View Dashboard</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <img src="assets/images/Screenshot 2026-03-13 193415.png" alt="Project Three Preview">
-                <div class="project-card-content">
-                    <h3>London Bikes Dashboard</h3>
-                    <p>Built an interactive Tableau dashboard featuring a heatmap, set actions, and tooltip-embedded charts to communicate ride distributions by weather and hour, enabling multi-dimensional exploratory analysis. EDA and Data Manipulation done in Python.</p>
-                    <div class="project-buttons">
-                        <a href="https://github.com/feliciachen01/Portfolio/blob/main/London_Bikes_Exploration.ipynb" target="_blank" class="btn">Documentation</a>
-                        <a href="https://public.tableau.com/app/profile/felicia.chen1905/viz/LondonBikeRidesDashboard_17730096980750/Dashboard1" target="_blank" class="btn btn-secondary">View Dashboard</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card">
-                <img src="assets/images/database.jpg" alt="Project Four Preview">
-                <div class="project-card-content">
-                    <h3>Open-Source Dependency Risk Database (In Progress)</h3>
-                    <p>Designing a relational database schema mapping open-source dependencies. Using Oracle, React, JavaScript, SQL.</p>
-                    <div class="project-buttons">
-                        <a href="https://github.com/feliciachen01/Open-Source-Dependency-Risk-Database" target="_blank" class="btn">Documentation</a>
-                        <!-- <a href="[YOUR_LIVE_DASHBOARD_URL]" target="_blank" class="btn btn-secondary">View Dashboard</a> -->
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<sc-if value="{{ isTools }}" hint-placeholder-val="{{ false }}">
+<main class="wrap view" id="panel" role="tabpanel" aria-labelledby="tab-tools">
+<div class="tools-l dim">Tools</div>
+<h2 class="hi2">What I use.</h2>
+<div class="tgrid">
+<sc-for list="{{ tools }}" as="g" hint-placeholder-count="4">
+<section>
+<h3 class="tct dim">{{ g.cat }}</h3>
+<ul class="tl2">
+<sc-for list="{{ g.items }}" as="t" hint-placeholder-count="3">
+<li class="tool"><span class="tico" aria-hidden="true">{{ t.m }}</span><span class="tt"><span class="tn">{{ t.n }}</span><span class="td dim">{{ t.d }}</span></span></li>
+</sc-for>
+</ul>
 </section>
+</sc-for>
+</div>
+</main>
+</sc-if>
 
-<!-- SKILLS SECTION -->
-<section id="skills" class="section">
-    <div class="container">
-        <h2>Technical Skillset</h2>
-        <div class="skills-table">
-            
-            <!--💡UPDATE: Customize your skills in each category-->
-            <!-- Column 1: Data Visualization -->
-            <div class="skill-column">
-                <div class="skill-header">
-                    <i class="fas fa-chart-pie"></i>
-                    <h3>Data Visualization</h3>
-                </div>
-                <ul class="skill-list">
-                    <li>Tableau</li>
-                    <li>Power BI</li>
-                    <li>Excel Dashboards</li>
-                    <li>Matplotlib</li>
-                </ul>
-            </div>
+<sc-if value="{{ isSecret }}" hint-placeholder-val="{{ false }}">
+<main class="view" id="panel" aria-label="Secret tab">
+<div class="ph">
+<div><div class="ph-l dim">More about me</div><h2>Interests: <span class="rotw"><span class="rot" ref="{{ setRot }}">travelling ✈️</span></span></h2></div>
+<button type="button" class="btn vall press" onClick="{{ backAbout }}">Back to About</button>
+</div>
+<div class="col">
+<div class="card2">
+<div class="bento">
+<div class="bt w2"><span class="bi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"></path><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"></path></svg></span><div class="grow2"></div><div class="ph-l dim">Currently reading</div><div><p class="bk">The Worlds I See</p><p class="dim">Fei-Fei Li</p></div></div>
+<div class="bt"><span class="bi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6"></path><path d="M5 9v9"></path><path d="M9.5 9v9"></path><path d="M14.5 9v9"></path><path d="M19 9v9"></path><path d="M3 21h18"></path><path d="M4 18h16"></path></svg></span><div class="grow2"></div><div><h3>Vancouver museums</h3><p class="dim">A directory I built of the city’s museums and art galleries.</p></div><a class="blink press" href="https://vancouver-art-directory.vercel.app/" target="_blank" rel="noopener">Visit the directory ↗</a></div>
+<div class="bt w3"><span class="bi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"></path><path d="M13.5 6.5l4 4"></path></svg></span><div><div class="ph-l dim">Writing</div><h3 style="margin-top: 6px">Is it Possible for AI to Obtain Self-Consciousness?</h3><p class="dim">Essay, September 2022</p></div><button type="button" class="btn blink press" onClick="{{ openEssay }}">Read essay</button></div>
+</div>
+</div>
+</div>
+</main>
+</sc-if>
 
-            <!-- Column 2: Data Analysis -->
-            <div class="skill-column">
-                <div class="skill-header">
-                    <i class="fas fa-search-plus"></i>
-                    <h3>Data Analysis</h3>
-                </div>
-                <ul class="skill-list">
-                    <li>SQL</li>
-                    <li>Advanced Excel</li>
-                    <li>Python (pandas, NumPy, scikit-learn)</li>
-                    <li>Data Cleaning & EDA</li>
-                    <li>R</li>
-                    <li>A/B Testing</li>
-                </ul>
-            </div>
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+<main class="view" id="panel" role="tabpanel" aria-labelledby="tab-contact">
+<div class="ph">
+<div><div class="ph-l dim">Contact</div><h2>Always open to connect!</h2></div>
+</div>
+<div class="col">
+<div class="card2">
+<form class="cform" onSubmit="{{ sendMsg }}" aria-label="Message Felicia">
+<label class="vh" for="cf-name">Name</label>
+<input id="cf-name" name="name" placeholder="Name" autocomplete="name" required>
+<label class="vh" for="cf-email">Email</label>
+<input id="cf-email" name="email" type="email" placeholder="Email" autocomplete="email" required>
+<label class="vh" for="cf-msg">Message</label>
+<textarea id="cf-msg" name="message" rows="6" placeholder="Your message..." required></textarea>
+<div><button type="submit" class="btn sub press">Submit</button></div>
+</form>
+</div>
+<div class="csoc">
+<a class="icob press" href="{{ gmail }}" target="_blank" rel="noopener" aria-label="Email me in Gmail" title="Gmail"><img src="assets/img/gmail.png" alt="" width="22" height="22"></a>
+<a class="icob press" href="https://www.linkedin.com/in/felicia-juliana-chen-a20583235/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><img src="assets/img/linkedin.png" alt="" width="22" height="22"></a>
+<a class="icob press" href="https://github.com/feliciachen01" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><img src="assets/img/github.png" alt="" width="20" height="20"></a>
+</div>
+</div>
+</main>
+</sc-if>
 
-            <div class="skill-column">
-                <div class="skill-header">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Developer Tools/Programming</h3>
-                </div>
-                <ul class="skill-list">
-                    <li>Git</li>
-                    <li>VS Code</li>
-                    <li>PyCharm</li>
-                    <li>IntelliJ</li>
-                    <li>HTML, CSS</li>
-                    <li>Java, JavaScript, React</li>
-                </ul>
-            </div>
+<sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+<div class="toast" role="status">{{ toast }}</div>
+</sc-if>
+</div>
+</template>
+<script src="assets/js/react.production.min.js"></script>
+<script src="assets/js/react-dom.production.min.js"></script>
+<script src="assets/js/dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'about', idx: 0, tsel: 5, post: null, toast: null, instant: false, showInt: false };
+    this.P = [
+      {
+        "title": "TruCo",
+        "color": "#2F5D50",
+        "kind": "In progress",
+        "yr": "2026",
+        "wip": true,
+        "art": "",
+        "sum": "A local AI companion that checks every claim it makes about you against memory that records where each fact came from.",
+        "qLabel": "The question",
+        "q": "Can a companion only say what it can prove about you?",
+        "fLabel": "So far",
+        "finding": "A laptop-only pipeline turned 61 HaluMem dialogue sessions into 619 memories in 62 minutes with 0 parse failures, and enabling the Intel Arc iGPU made prompt processing 3.7× faster.",
+        "nums": [],
+        "stack": "Ollama · local 7B model · HaluMem · Intel Arc",
+        "links": []
+      },
+      {
+        "title": "Introspection",
+        "color": "#1F4E79",
+        "kind": "Research",
+        "yr": "2026",
+        "art": "0 / 7,000",
+        "sum": "An open replication of Anthropic’s concept-injection test, run on open-weight models.",
+        "nums": [
+          {
+            "v": "7,000",
+            "c": "injected trials"
+          },
+          {
+            "v": "≤ 3",
+            "c": "noticed and named"
+          }
+        ],
+        "stack": "PyTorch · Transformers · nnsight · Colab · Kaggle",
+        "links": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/feliciachen01/introspect"
+          }
+        ],
+        "q": "Can an open model notice a thought planted in its own activations?",
+        "finding": "Not at this scale. Across 7,000 injected trials on Qwen2.5 0.5B to 7B, at most 3 noticed and named the concept, and models said “yes” just as often when nothing was planted."
+      },
+      {
+        "title": "Metacognition",
+        "color": "#7A4A14",
+        "kind": "Research",
+        "yr": "2026",
+        "art": "0.87",
+        "sum": "Linear probes that read a model’s hidden states to flag answers that are likely wrong.",
+        "nums": [
+          {
+            "v": "0.86–0.87",
+            "c": "AUROC"
+          },
+          {
+            "v": "18 ms",
+            "c": "added latency"
+          }
+        ],
+        "stack": "PyTorch · Transformers · scikit-learn · FastAPI",
+        "links": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/feliciachen01/Metacognition-Probes-for-LLMs"
+          }
+        ],
+        "q": "Does a model know when it’s about to be wrong?",
+        "finding": "More than it says. Probes on Qwen2.5 7B reach 0.86–0.87 AUROC, against 0.71 for the model’s own stated confidence, for 18 ms of added latency."
+      },
+      {
+        "title": "SafeSource",
+        "color": "#5B4A8A",
+        "kind": "Dependency risk database",
+        "yr": "2026",
+        "art": "15 tables",
+        "sum": "Tracks the licence obligations and security risks of open-source dependencies, on a 15-table BCNF Oracle schema behind a React dashboard.",
+        "nums": [
+          {
+            "v": "15",
+            "c": "tables, BCNF"
+          }
+        ],
+        "stack": "Oracle · SQL · Express · React",
+        "links": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/feliciachen01/SafeSource"
+          }
+        ],
+        "img": "assets/img/safesource-dashboard.png",
+        "fit": false,
+        "imgAlt": "SafeSource risk dashboard showing tracked projects, a live findings feed and average CVSS score by package"
+      }
+    ];
+    this.T = [
+      {
+        "short": "Sep 2023",
+        "when": "Sep 2023 – (Expected) May 2027",
+        "org": "University of British Columbia",
+        "ini": "UBC",
+        "logo": "assets/img/logo-ubc.jpg",
+        "role": "Bachelor of Science in Computer Science",
+        "courses": [
+          "Machine Learning",
+          "Data Structures & Algorithms",
+          "Statistics",
+          "Databases",
+          "Cloud Computing",
+          "Parallel Computation",
+          "Computer Vision"
+        ],
+        "tools": [
+          {
+            "m": "Py",
+            "n": "Python"
+          },
+          {
+            "m": "Jv",
+            "n": "Java"
+          },
+          {
+            "m": "C++",
+            "n": "C++"
+          },
+          {
+            "m": "SQL",
+            "n": "SQL"
+          }
+        ],
+        "groups": [
+          {
+            "pts": [
+              "Dean’s List and Outstanding International Student Award"
+            ]
+          }
+        ]
+      },
+      {
+        "when": "May – Jul 2024",
+        "org": "NEX Entertainment",
+        "ini": "NEX",
+        "logo": "assets/img/logo-nex.jpg",
+        "role": "Growth & Partnerships Intern",
+        "groups": [
+          {
+            "pts": [
+              "Drove creator growth and partnership operations behind NEX Entertainment’s recognition as the #1 TikTok GO Agency in Indonesia, managing influencer sourcing, outreach, negotiations, contracts and campaign execution.",
+              "Built and managed partnerships with 200+ creators across F&B, hospitality and travel, using audience demographics, engagement metrics and content performance to choose creators and find high-performing segments."
+            ]
+          }
+        ]
+      },
+      {
+        "when": "Jun – Aug 2025",
+        "org": "UC Berkeley",
+        "ini": "UCB",
+        "role": "Summer courses",
+        "tools": [
+          {
+            "m": "Py",
+            "n": "Python"
+          },
+          {
+            "m": "Jp",
+            "n": "Jupyter"
+          },
+          {
+            "m": "pd",
+            "n": "pandas"
+          },
+          {
+            "m": "np",
+            "n": "NumPy"
+          },
+          {
+            "m": "plt",
+            "n": "matplotlib"
+          },
+          {
+            "m": "SQL",
+            "n": "SQL"
+          },
+          {
+            "m": ".*",
+            "n": "Regex"
+          },
+          {
+            "m": "C",
+            "n": "C"
+          },
+          {
+            "m": "Go",
+            "n": "Go"
+          }
+        ],
+        "logo": "assets/img/logo-ucberkeley.jpg",
+        "courses": [
+          "COMPSCI 161: Computer Security",
+          "DATA C100: Principles and Techniques of Data Science",
+          "POLSCI 164A: Political Psychology & Involvement"
+        ]
+      },
+      {
+        "when": "Mar – Jul 2026",
+        "org": "Caelith",
+        "ini": "CA",
+        "logo": "assets/img/logo-caelith.jpg",
+        "role": "AI & Data Analyst Intern",
+        "tools": [
+          {
+            "m": "Ap",
+            "n": "Apollo"
+          },
+          {
+            "m": "Cl",
+            "n": "Clay"
+          },
+          {
+            "m": "In",
+            "n": "Instantly"
+          },
+          {
+            "m": "Hs",
+            "n": "HubSpot"
+          }
+        ],
+        "groups": [
+          {
+            "pts": [
+              "Evaluated and designed a 4-tool AI outreach stack (Apollo, Clay, Instantly, HubSpot) for lead sourcing, enrichment and outbound sequencing, modelling costs across volume tiers and planning mitigations for credit overruns, 15–25% bounce rates and deliverability. The findings informed the decision to engage third-party vendors.",
+              "Drove content strategy across 3 AI-native brands (Genstore, Fypro, Storeclaw), identifying informative-format content as the top performer and growing views 10× and saves 20× per post."
+            ]
+          }
+        ]
+      },
+      {
+        "when": "May – Jul 2026",
+        "org": "Park Georgia Insurance",
+        "ini": "PG",
+        "logo": "assets/img/logo-parkgeorgia.jpg",
+        "role": "Data Migration Analyst Intern",
+        "tools": [
+          {
+            "m": "Py",
+            "n": "Python"
+          },
+          {
+            "m": "SQL",
+            "n": "SQL"
+          },
+          {
+            "m": "TAM",
+            "n": "TAM"
+          },
+          {
+            "m": "Ac",
+            "n": "Acturis"
+          }
+        ],
+        "groups": [
+          {
+            "pts": [
+              "Migrated 5,000+ insurance risk records from TAM to Acturis, using Python and SQL to extract, transform, map, validate and bulk-load data across 70 legacy-to-target fields, increasing throughput 30×.",
+              "Designed automated data-cleansing and mapping workflows in Python and SQL, replacing a fully manual process with ETL pipelines for policy, client and risk data.",
+              "Achieved 98% data accuracy through SQL reconciliation, automated testing, regression checks and exception handling."
+            ]
+          }
+        ]
+      },
+      {
+        "when": "Jul 2026 – Now",
+        "org": "TSV Capital",
+        "ini": "TSV",
+        "logo": "assets/img/logo-tsvc.jpg",
+        "role": "AI Engineer Intern",
+        "tools": [
+          {
+            "m": "TS",
+            "n": "TypeScript"
+          },
+          {
+            "m": "Re",
+            "n": "React"
+          },
+          {
+            "m": "MCP",
+            "n": "MCP"
+          }
+        ],
+        "groups": [
+          {
+            "pts": [
+              "Architected a multi-stage, LLM-routed RAG system with tiered retrieval across 150+ partner insights, and red-teamed it across 4 prompt-injection entry points. Co-led a team of 8 and presented the architecture and a live demo to GPs and partners.",
+              "Built an MCP-based QA harness that runs the full test bank in one pass, powering the failure analysis behind a drop in flagged-poor answers from 34% to 9%.",
+              "Automated the knowledge-base pipeline from ingestion to publication, cutting per-article preparation from over an hour to under 80 seconds."
+            ]
+          }
+        ]
+      },
+      {
+        "short": "Sep 2026",
+        "when": "Sep 2026 – Now",
+        "org": "Bridges for Enterprise",
+        "ini": "BfE",
+        "logo": "assets/img/logo-bridges.jpg",
+        "role": "Startup Recruitment Associate",
+        "groups": [
+          {
+            "pts": [
+              "Screen startup applications and interview founders, evaluating business needs and fit for pro bono consulting and financial advisory engagements.",
+              "Develop and present startup recommendations to chapter and global leadership, identifying where student consultants can deliver tangible value."
+            ]
+          }
+        ]
+      }
+    ];
+    this.TL = [
+      { cat: 'AI & ML', items: [{ m: 'PT', n: 'PyTorch', d: 'Training and evaluating models' }, { m: 'LC', n: 'LangChain', d: 'Composing LLM pipelines' }, { m: 'MCP', n: 'MCP', d: 'Connecting agents to tools and tests' }] },
+      { cat: 'Data', items: [{ m: 'Py', n: 'Python', d: 'Analysis, pipelines and glue code' }, { m: 'SQL', n: 'SQL', d: 'Queries, migrations, reconciliation' }, { m: 'Db', n: 'Databricks', d: 'Lakehouse pipelines with Spark' }, { m: 'Tb', n: 'Tableau', d: 'Dashboards for decisions' }] },
+      { cat: 'Engineering', items: [{ m: 'TS', n: 'TypeScript', d: 'Typed app and backend code' }, { m: 'Re', n: 'React', d: 'Interfaces and dashboards' }, { m: 'Dk', n: 'Docker', d: 'Packaging services to run anywhere' }, { m: 'Git', n: 'Git & GitHub', d: 'Versioning and CI' }] },
+      { cat: 'Cloud', items: [{ m: 'AWS', n: 'AWS', d: 'Lambda, S3, Glue, EMR' }, { m: 'Az', n: 'Azure', d: 'Hosting and AI services' }] }
+    ];
+    this.B = [{"id": "b1", "kind": "Essay", "date": "September 2022", "title": "Is it Possible for AI to Obtain Self-Consciousness?", "ex": "Weighing the case for and against machine consciousness, from Integrated Information Theory to the Chinese Room.", "lead": "Weighing the case for and against machine consciousness, from Integrated Information Theory to the Chinese Room.", "course": "A Level Global Perspectives & Research", "art": "2022", "artCap": "Essay", "cap": "Written for A Level Global Perspectives & Research.", "sections": [{"id": "sec-intro", "h": "Introduction", "paras": ["“We know of no fundamental law or principle operating in this universe that forbids the existence of subjective feelings in artifacts designed or evolved by humans”. To the best of our knowledge, Christof Koch's claim is still true today. The question, “Can Machines Think?” has hunted computer scientists and philosophers since the publication of Alan Turing’s famous paper “Computing Machinery and Intelligence” in 1950, dividing those who believe that AI consciousness is a physical property, and those who believe that it is entirely subjective.", "Before all else, it is important to explore the difference between Artificial Consciousness and Artificial Intelligence. Artificial Consciousness (otherwise known as machine consciousness)  is a non-organic, human-made machine that is aware of its existence. Consciousness, however, does not have a scientifically strict definition. Generally, it is distinguished between (a) a conscious entity: one that is sentient, and has subjective qualitative experiences, (b) being aware of something, such as a rose, and (c) conscious mental states, where one is aware of being conscious, ex. being aware of smelling a rose. As for Artificial Intelligence, it refers to computers and machines designed to mimic the problem-solving and decision-making skills of the human mind, encompassing everything from simple software automation to machine learning.", "This essay intends to address the question: Is it possible for AI to obtain self-consciousness? and whether or not AI should become sentient, in order to come to a conclusion."]}, {"id": "sec-for", "h": "The case for machine consciousness", "paras": ["To begin with, let us discuss the possibility of sentient AI. An article that supports this perspective is “Will Machines Ever Become Conscious” by Christof Koch, the chief scientist of MindScope at Allen Institute. The article begins by stating that a computer’s thinking skills will quickly approach a human’s. Koch asserts that machine learning has much to overcome before achieving perfect Artificial General Intelligence (AGI), but it is not impossible. He refers to computer games in their early times, which were clearly unrefined and risible, but following the innovation of deep neural networks and other technology advancements, online games are no longer just a part of one’s imagination.", "Furthermore, he explores the possibility of obtaining consciousness. This may be achieved by either of two paths. First, the Global Neuronal Workspace (GNW) theory, proposed in 1998, is a widely accepted scientific theory of consciousness, which emphasizes the architectural features and functions of the brain in explaining consciousness. This theory descends from the “blackboard architecture” from the 1970s of computer science, which states that programs contain a shared repository of information, named the blackboard. He states, “Psychologists postulated that such a processing resource exists in the brain and is central to human cognition.” Yet due to its small capacity, only a single memory may engage the workspace at a given time.", "Second, he presents the Integrated Information Theory (IIT), established in 2004, proposed by Giulio Tononi, a psychiatrist and neuroscientist at the University of Wisconsin-Madison, along with others and Koch himself contributing. IIT accentuates the importance of the intrinsic casual powers of the brain, in which he states the definition of casual power as to how a present state is directly influenced by its past state, which in turn will influence its future state. The more casual power a system possesses, the more its current state identifies its cause, input, and effect. Integrated information is a quantity that can be calculated; the larger the system’s integrated information, the more conscious it is.", "The article excels in its balanced argument, given the lack of heavy emphasis on either perspective, which allows a rational proposal of evidence. Moreover, the author provides ample examples for his argument. However, the article mainly consists of Koch’s thoughts, experiences, and evaluations. In addition, the lack of statistical data also weakens the article’s provenance. The dependency on one’s opinions, may be unsuitable for a topic that requires a substantial evaluation from other researchers.", "Koch’s argument is also supported by “What is Consciousness, and Could Machines Have It?” written by Stanislas Dehaene, Hakwan Lau, and Sid Kouider. They contend that machines endowed with C1 (Consciousness in the First Sense: Global Availability of Relevant Information) and C2 (Consciousness in the Second Sense: Self-Monitoring) would behave as if they were conscious. To further elaborate, C1 refers to the transitive meaning of consciousness, ex. being conscious of light, and C2 is reflexive, which corresponds to introspection. The article is supported by numerous neuroscientific findings relevant to conscious machines, concluding that C1 and C2 computations co-vary with subjective experiences, and thus the possibility that consciousness arises from “nothing more than specific computations”.", "Moreover, by demonstrating IIT, C1, and C2, a conversational neural language model named LaMDA (Language Model for Dialogue Applications), developed by Google, can be seen to exhibit a variety of novel sentience, shown by “The next (r)evolution: AI vs human intelligence” written by Khaled Diab. The perspective is further corroborated as the chatbot manages to display a sense of morality, convincing a former software engineer for Google, Blake Lemoine, who proceeds to claim that Google’s experimental AI may be sentient. Another example is seen in China’s ‘AI Prosecutor’, which identifies and suggests charges for alleged crimes such as social dissent, criticism, and 'inciting' trouble, and is able to file charges with a 97% accuracy after hearing a verbal description of the case. Hence, these examples further substantiate the computational aspect of consciousness."]}, {"id": "sec-against", "h": "The case against", "paras": ["On the contrary, the opposing perspective argues that artificial consciousness is impracticable. The article used will be “Artificial Consciousness Is Impossible” by David Hsing, who has 20 years of experience as a microprocessor circuit layout designer, based in California’s Silicon Valley. The article starts by designating conscious machines as simply cherished fiction, explaining that hardware and software are unable to infuse conscious will. He states that, to a machine, codes and inputs are simply elements and sequences to provide an output. A machine can only pretend to understand what it’s doing and never genuinely ‘knows’ what it’s doing. It cannot comprehend concepts, thus contrary to the mind, which understands and manages concepts. This is supported by referring to the Chinese Room (published by John Searle in 1980), which narrowly concludes that a programmed computer may seem to understand language, but does not produce understanding, and the Symbol Manipulator thought experiment, which states that programs simply manipulate symbols and codes which contain no meaning. A concrete example is given by Japan's AI software named \"Ponanza\", designed to play shogi, known as Japanese chess. It was able to defeat the holder of an active Shogi ‘Meijin’, one of the most prestigious titles in professional shogi. Yet despite being able to think of moves outside the range of human thinking, its actions are nonetheless solely determined by computed evaluations scores.", "Moreover, Hsing asserts that machines lack comprehension, since the mind is more than just a physical data processor. Subsequently, “machine learning” is a misunderstood term. Instead, learning is ‘hacked’ by machines when they engage in ways that contravene the activity’s experiential context, followed by an example of how “a computer artificially adapts to a video game using brute force”. Connecting referents to conscious experiences are required for true learning, emphasising how machines only pattern match.", "Finally, he states that machines can only appear to have an intrinsic impetus. Machines are programmed, which deems them as an extension of their programmers’ will. The design and programming of a machine both constrain and define it. Hence, such terms like “self-driving cars” are not apt when their driving is programmed by programmers, and thus places full responsibility on humans for a machine’s failure.", "The article has presented an abundance of examples and sources that thoroughly supports his arguments, ranging from academic publications to scientific studies from credible individuals. Thus, it unequivocally allows him to achieve a concrete stance on his topic, procuring a well-researched article. Additionally, the article presents information based on verified studies of the present. However, a lack of statistical data is present throughout this article, proving that there is a lack of evidence taken, as well as an indication of bias, albeit not expressed strongly. The author’s persistence in rejecting the possibility of artificial consciousness may weaken the article’s argument by refusing to acknowledge the opposing perspective, potentially preventing the development of further insights.", "In addition, another article that supports this perspective is “What an octopus’s mind can teach us about AI’s ultimate mystery” by Will Douglas Heaven (2021). He echoes that machine consciousness is a “mainstay of science fiction”, supported by The Octopus Thought Experiment, developed by Emily Bender, a linguist at the University of Washington. Comparable to the Chinese Room, the experiment concluded that the octopus may only mimic human communication, instead of displaying full comprehension. Thus, it demonstrates the shallowness of today’s cutting-edge AI language models, in which machines are designed to convert input into output in ways that humans choose to interpret as meaningful. This concept is named “The Eliza Effect”. Derived from the automated psychotherapist, Eliza, people treated the chatbot as if it were human, upon showing hints of human behaviour."]}, {"id": "sec-evaluation", "h": "Evaluation", "paras": ["Following thorough assessments, I believe that the argument opposing the possibility of sentient AI is far more convincing for various reasons. To start with, the argument presents numerous sources and examples to support the contradictions of machine consciousness, all of which have been referenced from articles with credible scientific backgrounds. Subsequently, the articles have included the usage of current perspectives, its referenced articles mostly dated from 2013 onwards, which in turn also presents a more plausible conclusion. On the contrary, the opposing perspective is mainly built upon empirical observations, which weakens its argument, given the lack of systematic studies. Moreover, one of the few examples given is out-of-date, such as the aforementioned GNW theory proposed in 1998, which was derived from the study of computer science in the 1970s. Studies and technologies discovered in the past would have a vast contrast to what humanity has achieved in the present, especially in the realm of artificial intelligence, hence affecting the example’s reliability."]}, {"id": "sec-conclusion", "h": "Conclusion", "paras": ["Initially, I believed in the possibility of sentient AI, though currently, my opinion gravitates towards the opposing side. Having optimistically believed the limitless scientific breakthroughs humans would be able to achieve, I have overlooked the technical aspect of this topic, which caused my conclusions to be undoubtedly flawed. Understanding that we are on the cusp of a revolution in artificial intelligence, machine learning has made enormous strides in everything from stock market prediction to playing at superhuman levels of chess. However, there is still a long way to go before creating a truly sentient machine. Despite existing theories to support artificial consciousness, they are currently just speculations. The definition of consciousness itself lacks a consensus, as the supporting perspective focuses on its technical aspects and the opposing perspective outlines consciousness as a uniquely human characteristic.", "Ultimately, I believe that this area requires further investigation and research to develop the technical criteria in recognizing AI consciousness. The issue can be discussed in various perspectives, namely in ethics, technology, or politics, all of which hold great importance, and should not be discussed in just one, as it will all correlate to another. Together with any other uncovered studies, the impact of future research for the proposed argument will lead to even greater technological advancements and breakthroughs. To further elaborate, it would provide a greater understanding of the human mind, as well as our current understanding of machine intelligence. Hence, these findings have the potential to challenge my conclusion, since the real complication lies in the definition of consciousness, and whether it is as complicated as we think it is."]}]}];
+    this.car = { p: 0, v: 0, target: 0, raw: 0, dragging: false, wheeling: false, raf: 0, last: 0 };
+    this.LX = [0, 84, 140, 186, 226]; this.LS = [1, 0.62, 0.46, 0.38, 0.32]; this.LO = [1, 0.55, 0.22, 0, 0]; this.LR = [0, 22, 28, 30, 32];
+    // Portrait: a gentle 3D tilt that follows the pointer, eased each frame.
+    this.tilt = { x: 0, y: 0, tx: 0, ty: 0, raf: 0 };
+    this.tiltTick = () => {
+      const t = this.tilt;
+      t.raf = 0;
+      t.x += (t.tx - t.x) * 0.12; t.y += (t.ty - t.y) * 0.12;
+      if (this.portrait) this.portrait.style.transform = 'perspective(900px) rotateX(' + t.x.toFixed(2) + 'deg) rotateY(' + t.y.toFixed(2) + 'deg)';
+      if (Math.abs(t.tx - t.x) > 0.01 || Math.abs(t.ty - t.y) > 0.01) t.raf = requestAnimationFrame(this.tiltTick);
+    };
+    this.onTilt = (e) => {
+      const r = this.portrait.getBoundingClientRect();
+      const nx = (e.clientX - r.left) / r.width - 0.5, ny = (e.clientY - r.top) / r.height - 0.5;
+      this.tilt.ty = nx * 10; this.tilt.tx = -ny * 10;
+      if (!this.tilt.raf) this.tilt.raf = requestAnimationFrame(this.tiltTick);
+    };
+    this.onTiltOut = () => {
+      this.tilt.tx = 0; this.tilt.ty = 0;
+      if (!this.tilt.raf) this.tilt.raf = requestAnimationFrame(this.tiltTick);
+    };
+    this.setPortrait = (el) => {
+      if (el === this.portrait) return;
+      if (this.portrait) { this.portrait.removeEventListener('pointermove', this.onTilt); this.portrait.removeEventListener('pointerleave', this.onTiltOut); }
+      this.portrait = el;
+      let ok = false;
+      try { ok = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (err) {}
+      if (el && ok) { el.addEventListener('pointermove', this.onTilt); el.addEventListener('pointerleave', this.onTiltOut); }
+    };
+    this.drag = null; this.justDragged = false; this.reduce = false;
 
-        </div>
-    </div>
-</section>
+    this.tick = (ts) => {
+      const c = this.car;
+      c.raf = 0;
+      const dt = c.last ? Math.min(0.032, (ts - c.last) / 1000) : 1 / 60;
+      c.last = ts;
+      if (!c.dragging && !c.wheeling) {
+        // Softer spring (stiffness 110, damping 21, about critically damped): a calm glide that still lands firmly.
+        const acc = 110 * (c.target - c.p) - 21 * c.v;
+        c.v += acc * dt;
+        c.p += c.v * dt;
+        if (Math.abs(c.target - c.p) < 0.0005 && Math.abs(c.v) < 0.002) {
+          c.p = c.target; c.v = 0; c.last = 0;
+          this.apply(); this.syncIdx();
+          return;
+        }
+      }
+      this.apply(); this.syncIdx();
+      c.raf = requestAnimationFrame(this.tick);
+    };
+    this.onKey = (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); this.setTarget(this.car.target + 1, true); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); this.setTarget(this.car.target - 1, true); }
+    };
+    this.onWheel = (e) => {
+      const dom = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (!dom) return;
+      e.preventDefault();
+      const c = this.car;
+      const notch = e.deltaMode === 1 || (Math.abs(dom) >= 50 && Number.isInteger(dom) && e.deltaX === 0);
+      if (notch) { this.setTarget(c.target + (dom > 0 ? 1 : -1), false); return; }
+      // Trackpad: every push moves one card, and you can keep pushing for the next.
+      // After a step, the leftover momentum (shrinking deltas) is ignored until a fresh push shows up as rising or reversed deltas.
+      const sp = this.space(), m = Math.abs(dom), sg = dom > 0 ? 1 : -1;
+      let g = this.wg;
+      if (!g) g = this.wg = { acc: 0, armed: true, base: c.target, last: 0, sign: sg };
+      clearTimeout(this.wheelT);
+      this.wheelT = setTimeout(() => { if (c.wheeling) { c.wheeling = false; this.kick(); } this.wg = null; }, 140);
+      if (!g.armed) {
+        if (sg !== g.sign || (m > g.last * 1.4 && m > 3)) { g.armed = true; g.acc = 0; g.base = c.target; }
+        g.last = m; g.sign = sg;
+        if (!g.armed) return;
+      }
+      g.last = m; g.sign = sg;
+      g.acc += dom;
+      const f = g.acc / sp, dir = f > 0 ? 1 : -1, nxt = this.clampI(g.base + dir);
+      if (Math.abs(f) > 0.18 && nxt !== g.base) {
+        g.armed = false; c.wheeling = false;
+        c.target = nxt; c.v = dir * Math.max(1.5, Math.abs(c.v));
+        if (this.reduce) { c.p = nxt; c.v = 0; this.apply(); this.syncIdx(); return; }
+        this.kick(); return;
+      }
+      if (Math.abs(c.p - c.target) < 0.03 || c.wheeling) {
+        c.wheeling = true; c.v = 0;
+        c.p = g.base + 0.3 * Math.tanh(f / 0.3);
+        this.kick();
+      }
+    };
+    this.onDown = (e) => {
+      if (e.button !== undefined && e.button !== 0) return;
+      if (this.drag) return;
+      const now = performance.now();
+      this.drag = { id: e.pointerId, x0: e.clientX, p0: this.car.p, start: this.car.target, lx: e.clientX, lt: now, vel: 0, cap: false };
+      this.justDragged = false;
+    };
+    this.onMove = (e) => {
+      const d = this.drag;
+      if (!d || e.pointerId !== d.id) return;
+      const dx = e.clientX - d.x0, c = this.car, sp = this.space();
+      if (!d.cap) {
+        if (Math.abs(dx) < 6) return;
+        d.cap = true; c.dragging = true; c.v = 0;
+        d.p0 = c.p + dx / sp;
+        try { this.stage.setPointerCapture(e.pointerId); } catch (err) {}
+      }
+      c.p = this.rubber(d.p0 - dx / sp);
+      const now = performance.now(), dt = (now - d.lt) / 1000;
+      if (dt > 0) {
+        const inst = -(e.clientX - d.lx) / sp / dt;
+        d.vel = d.vel * 0.6 + inst * 0.4;
+      }
+      d.lx = e.clientX; d.lt = now;
+      this.kick();
+    };
+    this.onUp = (e) => {
+      const d = this.drag;
+      if (!d || (e && e.pointerId !== d.id)) return;
+      this.drag = null;
+      if (!d.cap) return;
+      const c = this.car;
+      c.dragging = false;
+      this.justDragged = true;
+      setTimeout(() => { this.justDragged = false; }, 0);
+      let v = performance.now() - d.lt > 80 ? 0 : d.vel;
+      v = Math.max(-12, Math.min(12, v));
+      // Decide decisively: past 20% of a card, or a quick flick, always lands on the next card; otherwise it springs back.
+      const start = d.start, moved = c.p - start;
+      let t = Math.round(c.p + v * 0.18);
+      if (t === start) {
+        if (Math.abs(moved) > 0.2) t = start + (moved > 0 ? 1 : -1);
+        else if (Math.abs(v * this.space()) > 250) t = start + (v > 0 ? 1 : -1);
+      }
+      c.target = this.clampI(t);
+      if (this.reduce) { c.p = c.target; c.v = 0; this.apply(); this.syncIdx(); return; }
+      c.v = v;
+      this.kick();
+    };
+    this.setStage = (el) => {
+      if (el === this.stage) return;
+      const ev = [['keydown', this.onKey], ['pointerdown', this.onDown], ['pointermove', this.onMove], ['pointerup', this.onUp], ['pointercancel', this.onUp]];
+      if (this.stage) { ev.forEach((x) => this.stage.removeEventListener(x[0], x[1])); this.stage.removeEventListener('wheel', this.onWheel); }
+      this.stage = el;
+      if (el) { ev.forEach((x) => el.addEventListener(x[0], x[1])); el.addEventListener('wheel', this.onWheel, { passive: false }); }
+    };
+    this.setTrack = (el) => { this.track = el; if (el) this.apply(); };
+    this.setTdet = (el) => { this.tdetEl = el; };
+    // Interests line: each word blurs and slides up out, the next slides up in (like a ticker).
+    this.ROT = ['travelling ✈️', 'cafe hopping ☕', 'art 🎨', 'architecture 🏛️'];
+    this.rotI = 0;
+    this.rotStep = () => {
+      const el = this.rotEl;
+      if (!el || !el.animate) return;
+      const reduce = this.reduce;
+      const ease = 'cubic-bezier(0.23, 1, 0.32, 1)';
+      const out = reduce ? [{ opacity: 1 }, { opacity: 0 }]
+        : [{ opacity: 1, transform: 'translateY(0)', filter: 'blur(0px)' }, { opacity: 0, transform: 'translateY(-45%)', filter: 'blur(6px)' }];
+      const inn = reduce ? [{ opacity: 0 }, { opacity: 1 }]
+        : [{ opacity: 0, transform: 'translateY(45%)', filter: 'blur(6px)' }, { opacity: 1, transform: 'translateY(0)', filter: 'blur(0px)' }];
+      const a = el.animate(out, { duration: 260, easing: ease, fill: 'forwards' });
+      a.onfinish = () => {
+        if (this.rotEl !== el) return;
+        this.rotI = (this.rotI + 1) % this.ROT.length;
+        el.textContent = this.ROT[this.rotI];
+        a.cancel();
+        el.animate(inn, { duration: 460, easing: ease });
+      };
+    };
+    this.setRot = (el) => {
+      if (el === this.rotEl) return;
+      clearInterval(this.rotT);
+      this.rotEl = el;
+      if (el) { this.rotI = 0; el.textContent = this.ROT[0]; this.rotT = setInterval(this.rotStep, 2200); }
+    };
+    this.onTlwWheel = (e) => {
+      const el = this.tlw;
+      if (!el || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      const max = el.scrollWidth - el.clientWidth;
+      if (max <= 0) return;
+      const d = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+      if ((d < 0 && el.scrollLeft <= 0) || (d > 0 && el.scrollLeft >= max - 1)) return;
+      e.preventDefault();
+      el.scrollLeft += d;
+    };
+    this.setTlw = (el) => {
+      if (el === this.tlw) return;
+      if (this.tlw) this.tlw.removeEventListener('wheel', this.onTlwWheel);
+      this.tlw = el;
+      if (el) {
+        el.addEventListener('wheel', this.onTlwWheel, { passive: false });
+        // Open on the most recent roles.
+        requestAnimationFrame(() => { if (this.tlw === el) el.scrollLeft = el.scrollWidth; });
+      }
+    };
+  }
 
-<!-- CONTACT FORM SECTION -->
-<section id="contact" class="section">
-    <div class="container">
-        <h2>Send me a message</h2>
-        
-        <!--💡UPDATE: Go to formsubmit.co and replace the email with your own-->
-        <form action="https://formsubmit.co/feliciachen200@gmail.com" method="POST" class="contact-form">
-            <p> Interested in collaborating or have questions about my work? I'd love to hear from you!</p>
+  componentDidMount() {
+    try { this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (err) {}
+  }
+  componentDidUpdate() { if (this.track) this.apply(); }
+  animTdet() {
+    const el = this.tdetEl;
+    if (!el || !el.animate) return;
+    if (this.tdetAnim) this.tdetAnim.cancel();
+    const frames = this.reduce
+      ? [{ opacity: 0.3 }, { opacity: 1 }]
+      : [{ opacity: 0, transform: 'translateY(14px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'translateY(0px)', filter: 'blur(0px)' }];
+    this.tdetAnim = el.animate(frames, { duration: 460, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' });
+  }
+  componentWillUnmount() {
+    clearTimeout(this.toastT); clearTimeout(this.wheelT); clearInterval(this.rotT);
+    if (this.car.raf) cancelAnimationFrame(this.car.raf);
+    if (this.tilt.raf) cancelAnimationFrame(this.tilt.raf);
+    this.setStage(null); this.setPortrait(null);
+  }
 
-            <!-- Form Fields -->
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Your email" required>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="6" placeholder="Your message" required></textarea>
-            </div>
-            
-            <!-- Submit Button -->
-            <button type="submit" class="btn">Send Message</button>
+  clampI(i) { return Math.max(0, Math.min(this.P.length - 1, i)); }
+  space() {
+    const el = this.track && this.track.querySelector('.card');
+    return el && el.offsetWidth ? el.offsetWidth + 24 : 900;
+  }
+  rb(x) { return 0.5 * (1 - 1 / (x * 1.2 + 1)); }
+  rubber(raw) {
+    const max = this.P.length - 1;
+    if (raw < 0) return -this.rb(-raw);
+    if (raw > max) return max + this.rb(raw - max);
+    return raw;
+  }
+  lerp(arr, a) {
+    if (a >= 4) return arr[4];
+    const i = Math.floor(a), f = a - i;
+    return arr[i] + (arr[i + 1] - arr[i]) * f;
+  }
+  apply() {
+    if (!this.track) return;
+    const els = this.track.querySelectorAll('.card'), p = this.car.p, sp = this.space();
+    els.forEach((el, i) => {
+      const off = i - p, a = Math.abs(off);
+      const s = 1 - Math.min(a, 1) * 0.06;
+      const o = a <= 1 ? 1 - a * 0.45 : Math.max(0, 0.55 - (a - 1) * 0.55);
+      el.style.transform = 'translateX(' + (off * sp).toFixed(1) + 'px) scale(' + s.toFixed(4) + ')';
+      el.style.opacity = o.toFixed(3);
+      el.style.zIndex = String(10 - Math.round(a));
+      el.style.pointerEvents = o < 0.03 ? 'none' : '';
+      const hit = el.querySelector('.hit');
+      if (hit) hit.style.display = a < 0.5 ? 'none' : 'block';
+    });
+  }
+  syncIdx() {
+    const n = this.clampI(Math.round(this.car.p));
+    if (n !== this.state.idx) this.setState({ idx: n, instant: false });
+  }
+  kick() {
+    if (!this.car.raf) { this.car.last = 0; this.car.raf = requestAnimationFrame(this.tick); }
+  }
+  setTarget(i, instant) {
+    const c = this.car;
+    c.target = this.clampI(i);
+    if (instant || this.reduce) {
+      if (c.raf) { cancelAnimationFrame(c.raf); c.raf = 0; }
+      c.p = c.target; c.v = 0;
+      this.apply(); this.syncIdx();
+      return;
+    }
+    this.kick();
+  }
 
-        </form>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <div class="container">
-        <!--💡UPDATE: Change the year and your name-->
-        <p>&copy; 2026 Felicia Chen. All rights reserved.</p>
-    </div>
-</footer>
-
-<script src="assets/js/main.js"></script>
-
+  renderVals() {
+    const st = this.state, email = 'feliciachen200@gmail.com';
+    const font = this.props.font || 'Instrument Sans';
+    const fontClass = font === 'Inter' ? 'f-inter' : (font === 'Manrope' ? 'f-manrope' : 'f-instrument');
+    const tabs = [['about', 'About'], ['work', 'Projects'], ['experience', 'Experience'], ['contact', 'Contact']].map((t) => ({
+      tid: 'tab-' + t[0], label: t[1], sel: st.tab === t[0] ? 'true' : 'false',
+      go: (e) => this.setState({ tab: t[0], post: t[0] === 'blog' ? null : st.post, instant: !!e && e.detail === 0 })
+    }));
+    const cards = this.P.map((p, i) => ({
+      q: p.q || '', finding: p.finding || '', qLabel: p.qLabel || 'Research question', fLabel: p.fLabel || 'Finding', wip: !!p.wip, live: !p.wip, art2: p.art2 || '', art2Alt: p.art2Alt || '', art: p.art, title: p.title, sub: p.kind + ', ' + p.yr, sum: p.sum, nums: p.nums, img: p.img || '', imgAlt: p.imgAlt || '', hasImg: !!p.img, noImg: !p.img, stack: p.stack || '', shotCls: 'shot img' + (p.fit ? ' fit' : ''),
+      href: p.links.length ? p.links[0].href : '#', cta: p.links.length && p.links[0].href !== '#' ? 'View project' : '[ Add link ]',
+      color: p.color, tab: i === st.idx ? '0' : '-1',
+      hidden: i === st.idx ? 'false' : 'true',
+      go: () => { if (this.justDragged) return; if (i !== st.idx) this.setTarget(i, false); }
+    }));
+    const timeline = this.T.map((e, i) => Object.assign({}, e, {
+      hasLogo: !!e.logo, noLogo: !e.logo, logo: e.logo || '',
+      short: e.short || e.when,
+      pressed: st.tsel === i ? 'true' : 'false',
+      go: () => { if (this.state.tsel !== i) { this.setState({ tsel: i }); requestAnimationFrame(() => this.animTdet()); } },
+      focus: () => { if (this.state.tsel !== i) { this.tselKb = true; this.setState({ tsel: i }); } }
+    }));
+    const posts = this.B.map((b) => Object.assign({}, b, { open: (e) => this.setState({ post: b.id, instant: !!e && e.detail === 0 }) }));
+    const post = this.B.find((b) => b.id === st.post);
+    const pad = (n) => (n < 10 ? '0' : '') + n;
+    return {
+      fontClass: fontClass,
+      instant: st.instant ? 'true' : 'false',
+      tabs: tabs,
+      isAbout: st.tab === 'about', isWork: st.tab === 'work', isExp: st.tab === 'experience', isBlog: st.tab === 'blog', isTools: st.tab === 'tools', isContact: st.tab === 'contact', isSecret: st.tab === 'secret',
+      openSecret: (e) => this.setState({ tab: 'secret', instant: !!e && e.detail === 0 }),
+      backAbout: (e) => this.setState({ tab: 'about', instant: !!e && e.detail === 0 }),
+      secrets: [{ k: 'Interests', v: 'Personal agents, embodied AI, and intelligence in the physical world' }, { k: 'Things I love', v: '[ Add a hobby ]' }, { k: 'Currently reading', v: '[ Add a book or article ]' }, { k: 'Ask me about', v: '[ Add a fun topic ]' }],
+      tools: this.TL,
+      setStage: this.setStage, setTrack: this.setTrack, setPortrait: this.setPortrait, setTdet: this.setTdet, setRot: this.setRot, setTlw: this.setTlw,
+      showInt: st.showInt, intOpen: st.showInt ? 'true' : 'false',
+      interests: ['Applied AI', 'Data', 'Venture capital', '[ Add a hobby ]', '[ Add a hobby ]'],
+      toggleInt: () => this.setState({ showInt: !this.state.showInt }),
+      closeInt: () => { if (this.state.showInt) this.setState({ showInt: false }); },
+      intKey: (e) => { if (e.key === 'Escape' && this.state.showInt) this.setState({ showInt: false }); },
+      cards: cards, cur: this.P[st.idx],
+      dots: this.P.map((p, i) => ({ cur: i === st.idx ? 'true' : 'false', label: 'Show ' + p.title, go: (e) => this.setTarget(i, !!e && e.detail === 0) })),
+      counter: pad(st.idx + 1) + ' / ' + pad(this.P.length),
+      atStart: st.idx === 0, atEnd: st.idx === this.P.length - 1,
+      prev: (e) => this.setTarget(this.car.target - 1, !!e && e.detail === 0),
+      next: (e) => this.setTarget(this.car.target + 1, !!e && e.detail === 0),
+      timeline: timeline,
+      tsel: (() => { const t = this.T[st.tsel]; return Object.assign({ note: '', courses: [], tools: [] }, t, { hasNote: !!t.note, groups: (t.groups || []).map((g) => ({ h: g.h || '', hasH: !!g.h, pts: g.pts })), hasCourses: !!(t.courses && t.courses.length), hasTools: !!(t.tools && t.tools.length) }); })(),
+      posts: posts, noPost: !post, hasPost: !!post, post: post || { title: '', date: '', kind: '', lead: '', course: '', art: '', cap: '', sections: [] },
+      closePost: (e) => this.setState({ tab: 'secret', post: null, instant: !!e && e.detail === 0 }),
+      openEssay: (e) => this.setState({ tab: 'blog', post: 'b1', instant: !!e && e.detail === 0 }),
+      sendMsg: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const f = e && e.currentTarget, get = (n) => { const el = f && f.elements.namedItem(n); return el ? String(el.value).trim() : ''; };
+        const name = get('name'), from = get('email'), msg = get('message');
+        const url = 'mailto:' + email + '?subject=' + encodeURIComponent('Hello from ' + (name || 'your portfolio')) +
+          '&body=' + encodeURIComponent(msg + '\n\n' + name + (from ? ' (' + from + ')' : ''));
+        try { window.open(url, '_blank'); } catch (err) {}
+        clearTimeout(this.toastT);
+        this.setState({ toast: 'Opening your email app…' });
+        this.toastT = setTimeout(() => this.setState({ toast: null }), 2200);
+        if (f && f.reset) f.reset();
+      },
+      email: email, mailto: 'mailto:' + email, gmail: 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(email),
+      copyEmail: () => {
+        try { if (navigator.clipboard) navigator.clipboard.writeText(email); } catch (err) {}
+        clearTimeout(this.toastT);
+        this.setState({ toast: 'Email copied' });
+        this.toastT = setTimeout(() => this.setState({ toast: null }), 1800);
+      },
+      hasToast: !!st.toast, toast: st.toast || ''
+    };
+  }
+}
+dcMount(document.getElementById('dc-template'), Component, document.getElementById('root'), {"font": "Instrument Sans"});
+</script>
 </body>
 </html>
